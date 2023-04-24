@@ -1,2 +1,3 @@
-# mlserver-deployment
-A deployment usind Seldon's open source MLServer
+# MLServer Deployment
+
+Deploy a Fake news detector using Seldon's MLServer package.
