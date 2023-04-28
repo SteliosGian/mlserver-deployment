@@ -11,6 +11,7 @@ torch = "==1.13.1"
 torchtext = "==0.14.1"
 transformers = "==4.28.1"
 PyYAML = "==6.0"
+scikit-learn = "==1.2.2"
 
 [requires]
 python_version = "3.9.16"
