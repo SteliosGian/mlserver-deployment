@@ -1,0 +1,12 @@
+paths:
+  ZIP_DATA_PATH: data/news.csv.zip
+  DESTINATION_DIR: data
+params:
+  MAX_LENGTH: 256
+  PADDING: max_length
+  TEST_SIZE: 0.1
+  TEXT_COLUMN: text
+  LABEL_COLUMN: label
+  PRETRAINED_MODEL: bert-base-uncased
+  BATCH_SIZE: 16
+  EPOCHS: 4
