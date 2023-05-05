@@ -18,17 +18,15 @@ def save_model(save_path, model):
     logging.info(f"Model saved to {save_path}")
 
 
-def load_model(load_path, model):
+def load_model(load_path):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     if not load_path:
         return
 
-    state_dict = torch.load(load_path, map_location=device)
     logging.info(f"Model loaded from {load_path}")
 
-    model.load_state_dict(state_dict["model_state_dict"])
-    return state_dict["valid_loss"]
+    return torch.load(load_path, map_location=device)
 
 
 def calc_accuracy(preds, labels):
