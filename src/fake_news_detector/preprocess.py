@@ -3,6 +3,7 @@ Preprocessing
 """
 
 import torch
+import numpy as np
 import pandas as pd
 from typing import Tuple
 from sklearn.model_selection import train_test_split
@@ -35,21 +36,27 @@ class preprocess:
         attention_masks = list(map(lambda x: self.get_mask(x), input_ids))
         return attention_masks
 
-    def data_split(self, input_ids: list, encoded_label: pd.Series) -> Tuple[list, list, list, list]:
+    def data_split(self, input_ids: list, encoded_label: np.array) -> Tuple[list, list, np.array, np.array]:
         train_inputs, validation_inputs, train_labels, validation_labels = train_test_split(input_ids,
                                                                                             encoded_label,
                                                                                             random_state=1,
                                                                                             test_size=self.test_size)
         return train_inputs, validation_inputs, train_labels, validation_labels
 
-    def mask_split(self, attention_masks: list, encoded_label: pd.Series) -> Tuple[list, list]:
-        train_masks, validation_masks, _, _ = train_test_split(attention_masks, 
+    def mask_split(self, attention_masks: list, encoded_label: np.array) -> Tuple[list, list]:
+        train_masks, validation_masks, _, _ = train_test_split(attention_masks,
                                                                encoded_label,
-                                                               random_state=1, 
+                                                               random_state=1,
                                                                test_size=self.test_size)
         return train_masks, validation_masks
 
-    def convert_to_tensor(self, train_inputs, validation_inputs, train_labels, validation_labels, train_masks, validation_masks) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor ,torch.Tensor ,torch.Tensor ,torch.Tensor]:
+    def convert_to_tensor(self,
+                          train_inputs: list,
+                          validation_inputs: list,
+                          train_labels: np.array,
+                          validation_labels: np.array,
+                          train_masks: list,
+                          validation_masks: list) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         train_inputs = torch.tensor(train_inputs)
         validation_inputs = torch.tensor(validation_inputs)
 
