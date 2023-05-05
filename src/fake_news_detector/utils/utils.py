@@ -8,14 +8,12 @@ import datetime
 import numpy as np
 
 
-def save_model(save_path, model, valid_loss):
+def save_model(save_path, model):
 
     if not save_path:
         return
 
-    state_dict = {"model_state_dict": model.state_dict()}
-
-    torch.save(state_dict, save_path)
+    torch.save(model, save_path)
 
     logging.info(f"Model saved to {save_path}")
 
