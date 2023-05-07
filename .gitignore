@@ -1,5 +1,7 @@
 # Custom
 src/data
+src/test_notebook.ipynb
+src/inference/model/model_large.pt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
