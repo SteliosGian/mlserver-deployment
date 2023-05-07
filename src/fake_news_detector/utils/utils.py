@@ -2,6 +2,7 @@
 Utility functions
 """
 
+import os
 import logging
 import torch
 import datetime
@@ -13,9 +14,11 @@ def save_model(save_path, model):
     if not save_path:
         return
 
-    torch.save(model, save_path)
+    file_name = os.path.join(save_path, "model.pt")
 
-    logging.info(f"Model saved to {save_path}")
+    torch.save(model, file_name)
+
+    logging.info(f"Model saved to {file_name}")
 
 
 def load_model(load_path):

@@ -177,8 +177,8 @@ def train(model: BertForSequenceClassification,
         logging.info("Accuracy: {0:.2f}".format(eval_accuracy/nb_eval_steps))
         logging.info("Validation took: {:}".format(utils.format_time(time.time() - t0)))
 
-        # Save model
-        utils.save_model(config['paths']['DESTINATION_PATH'], model)
+    # Save model
+    utils.save_model(config['paths']['DESTINATION_DIR'], model)
 
 
 if __name__ == "__main__":
