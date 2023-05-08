@@ -16,7 +16,7 @@ class preprocess:
                  padding: str,
                  test_size: float,
                  text_column: str,
-                 pretrained_model: str = "bert-base-uncased") -> None:
+                 pretrained_model: str = "prajjwal1/bert-tiny") -> None:
         self.max_length = max_length
         self.padding = padding
         self.tokenizer = AutoTokenizer.from_pretrained(pretrained_model, do_lower_case=True)

@@ -140,8 +140,8 @@ def train(model: BertForSequenceClassification,
         model.eval()
 
         # Tracking variables
-        eval_loss, eval_accuracy = 0, 0
-        nb_eval_steps, nb_eval_examples = 0, 0
+        eval_accuracy = 0
+        nb_eval_steps = 0
 
         # Evaluate data for one epoch
         for batch in validation_dataloader:
@@ -177,7 +177,7 @@ def train(model: BertForSequenceClassification,
         logging.info("Accuracy: {0:.2f}".format(eval_accuracy/nb_eval_steps))
         logging.info("Validation took: {:}".format(utils.format_time(time.time() - t0)))
 
-    # Save model
+    # Save trained model
     utils.save_model(config['paths']['DESTINATION_DIR'], model)
 
 
