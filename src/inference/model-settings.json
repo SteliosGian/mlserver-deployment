@@ -1,0 +1,7 @@
+{
+    "name": "fake-news-detector",
+    "implementation": "inference.FakeNewsModel",
+    "parameters": {
+        "uri": "model/model.pt"
+    }
+}
